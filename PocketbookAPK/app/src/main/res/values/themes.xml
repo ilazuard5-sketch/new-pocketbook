@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Full-screen, no title bar, no action bar -->
+    <style name="Theme.Pocketbook" parent="android:Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@color/brown_dark</item>
+        <item name="android:colorBackground">@color/brown_dark</item>
+        <item name="android:statusBarColor">@color/brown_dark</item>
+        <item name="android:navigationBarColor">@color/brown_dark</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+</resources>

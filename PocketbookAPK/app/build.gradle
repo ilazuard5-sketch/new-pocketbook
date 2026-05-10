@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.khk.pocketbook'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.khk.pocketbook"
+        // Compatible with Android 5.0+ (low-spec devices)
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug   // debug-signed for easy sideloading
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // Reduce APK size for low-spec devices
+    packaging {
+        resources {
+            excludes += ['/META-INF/{AL2.0,LGPL2.1}', '**/*.kotlin_module']
+        }
+    }
+
+    // Split APKs by ABI for smaller download (optional)
+    splits {
+        abi {
+            enable false
+        }
+    }
+}
+
+dependencies {
+    // Pure Android — no external libraries needed
+    // WebView is a built-in Android component
+}
